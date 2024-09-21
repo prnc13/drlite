@@ -15,8 +15,10 @@ $(function() {
         var scroll = $(window).scrollTop();
         if (scroll < 20) {
             $(".header_navbar").removeClass("sticky");
+            $(".brandLogo").removeClass("thodaSmallLogo");
         } else {
             $(".header_navbar").addClass("sticky");
+            $(".brandLogo").addClass("thodaSmallLogo");
         }
     });
     
