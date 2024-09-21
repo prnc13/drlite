@@ -78,3 +78,30 @@ $(function() {
     
     
 });
+document.addEventListener("DOMContentLoaded", function() {
+    const features = document.querySelectorAll('.single_features');
+    const torchImage = document.querySelectorAll('.torchImageAnimate');
+    let toObserve = [...features, ...torchImage]
+    console.log({features})
+
+    const observerOptions = {
+      threshold: 0.6 // Adjust this for how much of the element should be in view to trigger animation
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Add animation classes and make it visible
+          entry.target.classList.add('animate__fadeInUp');
+          entry.target.style.opacity = 1;
+          // Unobserve the element after animating it once
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    // Observe each feature card
+    toObserve.forEach(feature => {
+      observer.observe(feature);
+    });
+  });
