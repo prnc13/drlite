@@ -3,408 +3,1213 @@
 
 <head>
     <meta charset="utf-8">
-    
+
     <!--====== Title ======-->
     <title>DR-Lite - Bright innovations, anytime</title>
-    
-    <meta name="description" content="">
+
+    <meta name="description" content="DR-Lite delivers powerful and reliable lighting solutions for commercial and industrial uses.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="torch,kisaan torch,flashlight,searchlight,led,farming equipment,rechargeable torch,led light">
+
     <!--====== Favicon Icon ======-->
     <link rel="shortcut icon" href="assets/images/FAVICON.png" type="image/png">
-    <link rel="icon" href="icon_path" type="image/icon type">
-        
-    <!--====== Font Awesome CSS ======-->
+
+    <!--====== LineIcons CSS ======-->
     <link rel="stylesheet" href="assets/webfont/font-css/LineIcons.css">
-        
+
     <!--====== Bootstrap CSS ======-->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    
+
     <!--====== Default CSS ======-->
     <link rel="stylesheet" href="assets/css/default.css">
-    
+
     <!--====== Style CSS ======-->
     <link rel="stylesheet" href="assets/css/style.css">
+
+    <!--====== Animate CSS ======-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
+    <style>
+        /* ===== PRODUCTS SECTION ===== */
+        .products_area {
+            background-color: #f7f7fd;
+        }
+
+        .product_card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0px 8px 30px rgba(0,0,0,0.08);
+            transition: all 0.4s ease-out 0s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .product_card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0px 16px 48px rgba(0,0,0,0.14);
+        }
+
+        .product_card_image {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+            height: 240px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .product_card_image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 20px;
+            transition: transform 0.4s ease-out 0s;
+        }
+        .product_card:hover .product_card_image img {
+            transform: scale(1.06);
+        }
+        .product_badge {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            background-color: #f5391b;
+            color: #fff;
+            font-size: 11px;
+            font-weight: 600;
+            font-family: "Josefin Sans", sans-serif;
+            padding: 4px 12px;
+            border-radius: 50px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        .product_card_body {
+            padding: 28px 24px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .product_card_title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #38424D;
+            margin-bottom: 10px;
+            font-family: "Josefin Sans", sans-serif;
+        }
+        .product_card_desc {
+            font-size: 14px;
+            color: #747E88;
+            line-height: 22px;
+            margin-bottom: 18px;
+        }
+
+        /* Star Rating */
+        .star_rating {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 14px;
+        }
+        .stars {
+            color: #f5391b;
+            font-size: 16px;
+            letter-spacing: 2px;
+        }
+        .stars .star-empty {
+            color: #ddd;
+        }
+        .rating_count {
+            font-size: 13px;
+            color: #747E88;
+            font-family: "Josefin Sans", sans-serif;
+        }
+
+        /* Specifications */
+        .product_specs {
+            background: #f7f7fd;
+            border-radius: 8px;
+            padding: 14px 16px;
+            margin-bottom: 18px;
+        }
+        .product_specs_title {
+            font-size: 12px;
+            font-weight: 700;
+            color: #38424D;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            font-family: "Josefin Sans", sans-serif;
+        }
+        .spec_item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 4px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .spec_item:last-child {
+            border-bottom: none;
+        }
+        .spec_item i {
+            color: #f5391b;
+            font-size: 14px;
+            width: 16px;
+            flex-shrink: 0;
+        }
+        .spec_label {
+            font-size: 12px;
+            font-weight: 600;
+            color: #38424D;
+            font-family: "Josefin Sans", sans-serif;
+            min-width: 80px;
+        }
+        .spec_value {
+            font-size: 12px;
+            color: #747E88;
+            font-family: "Josefin Sans", sans-serif;
+        }
+
+        /* Reviews */
+        .product_reviews {
+            margin-top: auto;
+        }
+        .reviews_title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #38424D;
+            margin-bottom: 10px;
+            font-family: "Josefin Sans", sans-serif;
+        }
+        .single_review {
+            background: #fff;
+            border-left: 3px solid #f5391b;
+            padding: 10px 12px;
+            margin-bottom: 8px;
+            border-radius: 0 6px 6px 0;
+        }
+        .review_author {
+            font-size: 12px;
+            font-weight: 700;
+            color: #38424D;
+            font-family: "Josefin Sans", sans-serif;
+        }
+        .review_stars {
+            color: #f5391b;
+            font-size: 11px;
+            margin: 2px 0;
+        }
+        .review_text {
+            font-size: 12px;
+            color: #747E88;
+            line-height: 18px;
+        }
+
+        /* ===== ABOUT US SECTION ===== */
+        .about_us_area {
+            background-color: #fff;
+        }
+        .about_stat_box {
+            background: #f7f7fd;
+            border-radius: 10px;
+            padding: 28px 20px;
+            text-align: center;
+            transition: all 0.3s ease-out 0s;
+            border-bottom: 3px solid transparent;
+        }
+        .about_stat_box:hover {
+            border-bottom-color: #f5391b;
+            background: #fff;
+            box-shadow: 0px 8px 24px rgba(0,0,0,0.08);
+        }
+        .about_stat_number {
+            font-size: 40px;
+            font-weight: 700;
+            color: #f5391b;
+            font-family: "Josefin Sans", sans-serif;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        .about_stat_label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #38424D;
+            font-family: "Josefin Sans", sans-serif;
+        }
+        .about_value_item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+        .about_value_icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #f5391b 0%, #ff6b4a 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .about_value_icon i {
+            font-size: 22px;
+            color: #fff;
+        }
+        .about_value_body h6 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #38424D;
+            margin-bottom: 4px;
+        }
+        .about_value_body p {
+            font-size: 14px;
+            line-height: 20px;
+        }
+        .about_team_card {
+            text-align: center;
+            padding: 20px;
+        }
+        .about_team_avatar {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, #f5391b 0%, #ff6b4a 100%);
+            border-radius: 50%;
+            margin: 0 auto 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .about_team_avatar i {
+            font-size: 38px;
+            color: #fff;
+        }
+        .about_team_name {
+            font-size: 16px;
+            font-weight: 700;
+            color: #38424D;
+            font-family: "Josefin Sans", sans-serif;
+        }
+        .about_team_role {
+            font-size: 13px;
+            color: #f5391b;
+            font-family: "Josefin Sans", sans-serif;
+            margin-top: 4px;
+        }
+
+        /* ===== CONTACT SECTION ===== */
+        .map_wrapper {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0px 8px 30px rgba(0,0,0,0.1);
+            margin-top: 30px;
+        }
+        .map_wrapper iframe {
+            display: block;
+            width: 100%;
+            height: 350px;
+            border: none;
+        }
+        .contact_form_card {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0px 8px 30px rgba(0,0,0,0.08);
+            padding: 36px 32px;
+        }
+        .form_success_msg {
+            display: none;
+            background: #d4edda;
+            color: #155724;
+            border-radius: 8px;
+            padding: 14px 20px;
+            margin-top: 16px;
+            font-size: 15px;
+            font-family: "Josefin Sans", sans-serif;
+        }
+        .form_success_msg.show {
+            display: block;
+        }
+
+        /* ===== MISC ===== */
+        .section_divider {
+            width: 50px;
+            height: 3px;
+            background: #f5391b;
+            border-radius: 50px;
+            margin: 12px 0 0 0;
+        }
+        .section_divider.center {
+            margin: 12px auto 0;
+        }
+        .brandColor { color: #f5391b; }
+        .textWhite { color: #fff !important; }
+
+        .paddingForLargerScreen {
+            padding: 20px;
+        }
+        @media (max-width: 767px) {
+            .product_card_image { height: 200px; }
+            .contact_form_card { padding: 24px 18px; }
+            .about_stat_number { font-size: 30px; }
+        }
+    </style>
 </head>
 
 <body>
-    <!--[if IE]>
-    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-  <![endif]-->
-     
-    
-    <!--====== PRELOADER PART START ======-->
 
+    <!--====== PRELOADER ======-->
     <div class="preloader">
         <div class="loader">
             <div class="ytp-spinner">
                 <div class="ytp-spinner-container">
                     <div class="ytp-spinner-rotator">
-                        <div class="ytp-spinner-left">
-                            <div class="ytp-spinner-circle"></div>
-                        </div>
-                        <div class="ytp-spinner-right">
-                            <div class="ytp-spinner-circle"></div>
-                        </div>
+                        <div class="ytp-spinner-left"><div class="ytp-spinner-circle"></div></div>
+                        <div class="ytp-spinner-right"><div class="ytp-spinner-circle"></div></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <!--====== PRELOADER ENDS ======-->
 
-    <!--====== PRELOADER PART ENDS ======-->
-
-    <!--====== HEADER PART START ======-->
-
+    <!--====== HEADER / NAV ======-->
     <section class="header_area">
         <div class="header_navbar">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
                         <nav class="navbar navbar-expand-lg">
-                            <a class="navbar-brand" href="index.html">
-                                <img class="logo brandLogo" src="assets/images/logo-red.png" alt="logo">
-                                <!-- <img class="logo brandLogoSticky" style="display: none;" src="assets/images/logo_white.png" alt="logo"> -->
+                            <a class="navbar-brand" href="#home">
+                                <img class="logo brandLogo" src="assets/images/logo-red.png" alt="DR-Lite Logo">
                             </a>
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="toggler-icon"></span>
                                 <span class="toggler-icon"></span>
                                 <span class="toggler-icon"></span>
                             </button>
-
                             <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
                                 <ul id="nav" class="navbar-nav ml-auto">
                                     <li class="nav-item active">
                                         <a class="page-scroll" href="#home">Home</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="page-scroll" href="#features">Features</a>
+                                        <a class="page-scroll" href="#products">Products</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="page-scroll" href="#about">About</a>
+                                        <a class="page-scroll" href="#about">About Us</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="page-scroll" href="#contact">Contact</a>
+                                        <a class="page-scroll" href="#contact">Contact Us</a>
                                     </li>
                                 </ul>
-                            </div> <!-- navbar collapse -->
-                        </nav> <!-- navbar -->
+                            </div>
+                        </nav>
                     </div>
-                </div> <!-- row -->
-            </div> <!-- container -->
-        </div> <!-- header navbar -->
+                </div>
+            </div>
+        </div>
 
+        <!--====== HERO / HOME ======-->
         <div id="home" class="header_hero d-lg-flex align-items-center">
             <div class="container">
                 <div class="row align-items-center onMobileMargin">
                     <div class="col-lg-6">
                         <div class="header_hero_content mt-25">
                             <h2 class="header_title">Bright Innovations, Anytime!</h2>
-                            <p>DR-Lite delivers powerful and reliable lighting solutions for commercial and industrial uses.</p>
-                            <a href="#contact" class="main-btn">Contact Us</a>
-                        </div> <!-- header hero content -->
+                            <p>DR-Lite delivers powerful and reliable lighting solutions for commercial, industrial, and agricultural uses. Trusted by thousands across India.</p>
+                            <a href="#products" class="main-btn mt-35">Explore Products</a>
+                            <a href="#contact" class="main-btn main-btn-2 mt-35" style="margin-left: 14px;">Contact Us</a>
+                        </div>
                     </div>
-                </div> <!-- row -->
-            </div> <!-- container -->
-            <div class="header_shape bg_cover d-none d-lg-block" style="background-image: url(assets/images/header_shape.png)"></div> <!-- header shape -->
+                </div>
+            </div>
+            <div class="header_shape bg_cover d-none d-lg-block" style="background-image: url(assets/images/header_shape.png)"></div>
             <div class="header_image d-flex align-items-center">
                 <div class="image">
-                    <img src="assets/images/torch1.webp" alt="header image" class="torchImageAnimate animate__animated" style="opacity: 0;">
-                    <!-- <img src="assets/images/dots.svg" alt="dots" class="dots"> -->
-                </div> <!-- image -->
-            </div> <!-- header image -->
-        </div> <!-- header hero -->
+                    <img src="assets/images/torch1.webp" alt="DR-Lite Torch" class="torchImageAnimate animate__animated" style="opacity: 0;">
+                </div>
+            </div>
+        </div>
     </section>
+    <!--====== HEADER ENDS ======-->
 
-    <!--====== HEADER PART ENDS ======-->
-    
-    <!--====== FEATURES PART START ======-->
-
-    <section id="features" class="features_area pt-95">
+    <!--====== IMAGE CAROUSEL STRIP ======-->
+    <section class="gallery_strip_area pt-95 pb-70">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-6 col-md-9">
-                    <div class="section_title text-center pb-25">
-                        <h4 class="title">Torch Features</h4>
-                        <p>Despite being equipped with top-tier, industry-grade features, the key highlights include:</p>
+                    <div class="section_title text-center pb-40">
+                        <h4 class="title">Why Choose DR-Lite?</h4>
+                        <div class="section_divider center"></div>
                     </div>
                 </div>
-            </div> <!-- row -->
-            <div class="row text-center">
-                <div class="col-lg-3 col-sm-6">
-                    <div class="single_features mt-30 animate__animated" style="opacity: 0;">
-                        <i class="lni lni-bulb"></i>
-                        <h5 class="title">Power</h5>
-                        <p> 3 Watt High Power LED</p>
-                    </div>
+            </div>
+        </div>
+
+        <!-- Full-width infinite scroll carousel -->
+        <div class="gallery_carousel_wrapper">
+            <div class="gallery_carousel_track">
+                <!-- 4 real slides + duplicated set for seamless loop -->
+                <div class="gallery_slide">
+                    <!-- Replace src with your image URL -->
+                    <div class="gallery_placeholder"><i class="lni lni-image"></i><span>Photo 1</span></div>
                 </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="single_features mt-30 animate__animated" style="opacity: 0;">
-                        <i class="lni lni-bolt"></i>
-                        <h5 class="title">Battery Life</h5>
-                        <p>10 hours battery backup</p>
-                    </div>
+                <div class="gallery_slide">
+                    <div class="gallery_placeholder"><i class="lni lni-image"></i><span>Photo 2</span></div>
                 </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="single_features mt-30 animate__animated" style="opacity: 0;">
-                        <i class="lni lni-travel"></i>
-                        <h5 class="title">Distance</h5>
-                        <p>1 Km focused beam for long distance</p>
-                    </div>
+                <div class="gallery_slide">
+                    <div class="gallery_placeholder"><i class="lni lni-image"></i><span>Photo 3</span></div>
                 </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="single_features mt-30 animate__animated" style="opacity: 0;">
-                        <i class="lni lni-rocket"></i>
-                        <h5 class="title">Long life</h5>
-                        <p>light weight, Long Life</p>
-                    </div>
+                <div class="gallery_slide">
+                    <div class="gallery_placeholder"><i class="lni lni-image"></i><span>Photo 4</span></div>
                 </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
+                <!-- Duplicates for seamless infinite loop -->
+                <div class="gallery_slide">
+                    <div class="gallery_placeholder"><i class="lni lni-image"></i><span>Photo 1</span></div>
+                </div>
+                <div class="gallery_slide">
+                    <div class="gallery_placeholder"><i class="lni lni-image"></i><span>Photo 2</span></div>
+                </div>
+                <div class="gallery_slide">
+                    <div class="gallery_placeholder"><i class="lni lni-image"></i><span>Photo 3</span></div>
+                </div>
+                <div class="gallery_slide">
+                    <div class="gallery_placeholder"><i class="lni lni-image"></i><span>Photo 4</span></div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!--====== FEATURES PART ENDS ======-->
-    
-    <!--====== ABOUT PART START ======-->
+    <style>
+        .gallery_carousel_wrapper {
+            overflow: hidden;
+            width: 100%;
+            position: relative;
+        }
+        /* Fade edges */
+        .gallery_carousel_wrapper::before,
+        .gallery_carousel_wrapper::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 120px;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+        .gallery_carousel_wrapper::before {
+            left: 0;
+            background: linear-gradient(to right, #fff, transparent);
+        }
+        .gallery_carousel_wrapper::after {
+            right: 0;
+            background: linear-gradient(to left, #fff, transparent);
+        }
 
-    <section id="about" class="about_area pt-95">
+        .gallery_carousel_track {
+            display: flex;
+            gap: 20px;
+            /* 8 slides × (slide width 320px + gap 20px) = 2720px; animate half (4 slides = 1360px) */
+            animation: galleryScroll 14s linear infinite;
+            width: max-content;
+        }
+        .gallery_carousel_track:hover {
+            animation-play-state: paused;
+        }
+
+        .gallery_slide {
+            flex-shrink: 0;
+            width: 320px;
+            height: 220px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+        }
+        .gallery_slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+        .gallery_slide:hover img {
+            transform: scale(1.04);
+        }
+
+        /* Placeholder shown until real images are added */
+        .gallery_placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            color: #aaa;
+        }
+        .gallery_placeholder i {
+            font-size: 40px;
+            color: #ccc;
+        }
+        .gallery_placeholder span {
+            font-size: 13px;
+            font-family: "Josefin Sans", sans-serif;
+            font-weight: 600;
+            color: #bbb;
+        }
+
+        @keyframes galleryScroll {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(calc(-4 * (320px + 20px))); }
+        }
+
+        @media (max-width: 767px) {
+            .gallery_slide { width: 240px; height: 170px; }
+            @keyframes galleryScroll {
+                0%   { transform: translateX(0); }
+                100% { transform: translateX(calc(-4 * (240px + 20px))); }
+            }
+        }
+    </style>
+    <!--====== IMAGE CAROUSEL STRIP ENDS ======-->
+
+    <!--====== PRODUCTS SECTION ======-->
+    <section id="products" class="products_area pt-95 pb-95">
         <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-md-10">
+                    <div class="section_title text-center pb-50">
+                        <h4 class="title">Our Products</h4>
+                        <div class="section_divider center"></div>
+                        <p class="mt-15">Engineered for performance and built for endurance — explore the complete DR-Lite product lineup.</p>
+                    </div>
+                </div>
+            </div>
+
             <div class="row">
-                <!-- <div class="col-lg-6 col-sm-12">
-                    <div class="d-none d-lg-block">
-                        <img src="assets/images/about_shape.svg" alt="shape">
-                        <div class="about_image d-flex align-items-center align-items-center justify-content-end">
-                            <div class="image">
-                                <img src="assets/images/torch2.webp" alt="about" class="torchImageAnimate animate__animated" style="opacity: 0;">
+
+                <!-- Product 1 -->
+                <div class="col-lg-6 col-md-6 mb-30">
+                    <div class="product_card animate__animated" style="opacity: 0;">
+                        <div class="product_card_image">
+                            <img src="assets/images/torch1.webp" alt="DR-Lite Pro 3W">
+                            <span class="product_badge">Best Seller</span>
+                        </div>
+                        <div class="product_card_body">
+                            <h5 class="product_card_title">DR-Lite Pro 3W</h5>
+                            <p class="product_card_desc">The flagship everyday torch designed for farmers, security personnel, and outdoor enthusiasts. Delivers exceptional brightness with a 3W LED and superior beam control.</p>
+
+                            <div class="star_rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating_count">4.8 (120 reviews)</span>
                             </div>
-                        </div> about image -->
-                    <!-- </div> <!-- about shape -->
-                <!-- </div>  -->
+
+                            <div class="product_specs">
+                                <div class="product_specs_title">Specifications</div>
+                                <div class="spec_item">
+                                    <i class="lni lni-bulb"></i>
+                                    <span class="spec_label">LED Power</span>
+                                    <span class="spec_value">3 Watt High Power LED</span>
+                                </div>
+                                <div class="spec_item">
+                                    <i class="lni lni-bolt"></i>
+                                    <span class="spec_label">Battery</span>
+                                    <span class="spec_value">10 hours continuous backup</span>
+                                </div>
+                                <div class="spec_item">
+                                    <i class="lni lni-travel"></i>
+                                    <span class="spec_label">Beam Range</span>
+                                    <span class="spec_value">1 Km focused beam</span>
+                                </div>
+                                <div class="spec_item">
+                                    <i class="lni lni-weight"></i>
+                                    <span class="spec_label">Weight</span>
+                                    <span class="spec_value">180g (lightweight)</span>
+                                </div>
+                                <div class="spec_item">
+                                    <i class="lni lni-drop"></i>
+                                    <span class="spec_label">Body</span>
+                                    <span class="spec_value">High-grade durable plastic</span>
+                                </div>
+                            </div>
+
+                            <div class="product_reviews">
+                                <div class="reviews_title">Customer Reviews</div>
+                                <div class="single_review">
+                                    <div class="review_author">Ramesh K. — Farmer, Haryana</div>
+                                    <div class="review_stars">★★★★★</div>
+                                    <div class="review_text">"Best torch I've used for night farming. Battery lasts all night. Highly recommended!"</div>
+                                </div>
+                                <div class="single_review">
+                                    <div class="review_author">Sunil M. — Security Guard, Delhi</div>
+                                    <div class="review_stars">★★★★★</div>
+                                    <div class="review_text">"Very bright and durable. Dropped it many times and still works perfectly."</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="col-lg-6 col-md-6 mb-30">
+                    <div class="product_card animate__animated" style="opacity: 0;">
+                        <div class="product_card_image">
+                            <img src="assets/images/torch2.webp" alt="DR-Lite Max 5W">
+                            <span class="product_badge">New</span>
+                        </div>
+                        <div class="product_card_body">
+                            <h5 class="product_card_title">DR-Lite Max 5W</h5>
+                            <p class="product_card_desc">Step up your visibility with the Max 5W — engineered for industrial sites, warehouses, and long-range outdoor navigation requiring superior luminance.</p>
+
+                            <div class="star_rating">
+                                <span class="stars">★★★★<span class="star-empty">★</span></span>
+                                <span class="rating_count">4.5 (84 reviews)</span>
+                            </div>
+
+                            <div class="product_specs">
+                                <div class="product_specs_title">Specifications</div>
+                                <div class="spec_item">
+                                    <i class="lni lni-bulb"></i>
+                                    <span class="spec_label">LED Power</span>
+                                    <span class="spec_value">5 Watt Ultra Bright LED</span>
+                                </div>
+                                <div class="spec_item">
+                                    <i class="lni lni-bolt"></i>
+                                    <span class="spec_label">Battery</span>
+                                    <span class="spec_value">14 hours continuous backup</span>
+                                </div>
+                                <div class="spec_item">
+                                    <i class="lni lni-travel"></i>
+                                    <span class="spec_label">Beam Range</span>
+                                    <span class="spec_value">1.5 Km focused beam</span>
+                                </div>
+                                <div class="spec_item">
+                                    <i class="lni lni-weight"></i>
+                                    <span class="spec_label">Weight</span>
+                                    <span class="spec_value">210g</span>
+                                </div>
+                                <div class="spec_item">
+                                    <i class="lni lni-drop"></i>
+                                    <span class="spec_label">Body</span>
+                                    <span class="spec_value">Reinforced ABS plastic, shockproof</span>
+                                </div>
+                            </div>
+
+                            <div class="product_reviews">
+                                <div class="reviews_title">Customer Reviews</div>
+                                <div class="single_review">
+                                    <div class="review_author">Ajay T. — Warehouse Manager, Mumbai</div>
+                                    <div class="review_stars">★★★★★</div>
+                                    <div class="review_text">"The 5W beam is exceptional. Covers our entire warehouse floor with ease."</div>
+                                </div>
+                                <div class="single_review">
+                                    <div class="review_author">Priya N. — Trekker, Himachal Pradesh</div>
+                                    <div class="review_stars">★★★★<span style="color:#ddd">★</span></div>
+                                    <div class="review_text">"Great for treks. Wish it was a bit lighter, but the brightness is unmatched."</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="col-lg-6 col-md-6 mb-30">
+                    <div class="product_card animate__animated" style="opacity: 0;">
+                        <div class="product_card_image">
+                            <img src="assets/images/torch4.png" alt="DR-Lite Farm Series">
+                            <span class="product_badge">Agriculture Special</span>
+                        </div>
+                        <div class="product_card_body">
+                            <h5 class="product_card_title">DR-Lite Farm Series</h5>
+                            <p class="product_card_desc">Purpose-built for Indian farmers — wide-angle flood beam with extra-long battery life, designed for night-time field operations and irrigation work.</p>
+
+                            <div class="star_rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating_count">4.9 (210 reviews)</span>
+                            </div>
+
+                            <div class="product_specs">
+                                <div class="product_specs_title">Specifications</div>
+                                <div class="spec_item">
+                                    <i class="lni lni-bulb"></i>
+                                    <span class="spec_label">LED Power</span>
+                                    <span class="spec_value">3W + Wide Angle Flood LED</span>
+                                </div>
+                                <div class="spec_item">
+                                    <i class="lni lni-bolt"></i>
+                                    <span class="spec_label">Battery</span>
+                                    <span class="spec_value">20 hours (extended capacity)</span>
+                                </div>
+                                <div class="spec_item">
+                                    <i class="lni lni-travel"></i>
+                                    <span class="spec_label">Beam Mode</span>
+                                    <span class="spec_value">Flood + Spot (dual mode)</span>
+                                </div>
+                                <div class="spec_item">
+                                    <i class="lni lni-weight"></i>
+                                    <span class="spec_label">Weight</span>
+                                    <span class="spec_value">195g</span>
+                                </div>
+                                <div class="spec_item">
+                                    <i class="lni lni-drop"></i>
+                                    <span class="spec_label">Protection</span>
+                                    <span class="spec_value">IPX4 water resistant</span>
+                                </div>
+                            </div>
+
+                            <div class="product_reviews">
+                                <div class="reviews_title">Customer Reviews</div>
+                                <div class="single_review">
+                                    <div class="review_author">Gurmeet S. — Farmer, Punjab</div>
+                                    <div class="review_stars">★★★★★</div>
+                                    <div class="review_text">"Badhiya torch hai! Raat ko khet mein kaam karo, light 20 ghante chalti hai."</div>
+                                </div>
+                                <div class="single_review">
+                                    <div class="review_author">Deepak V. — Distributor, UP</div>
+                                    <div class="review_stars">★★★★★</div>
+                                    <div class="review_text">"Selling this to 50+ farmers monthly. Zero complaints, excellent product."</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 (Placeholder — image URL to be provided) -->
+                <div class="col-lg-6 col-md-6 mb-30">
+                    <div class="product_card animate__animated" style="opacity: 0;">
+                        <div class="product_card_image" style="background: linear-gradient(135deg, #38424D 0%, #4a5568 100%); position: relative;">
+                            <!-- Placeholder — replace src with actual product image URL -->
+                            <div style="text-align: center; color: rgba(255,255,255,0.5);">
+                                <i class="lni lni-camera" style="font-size: 48px; display: block; margin-bottom: 10px;"></i>
+                                <span style="font-size: 13px; font-family: 'Josefin Sans', sans-serif; font-weight: 600;">Image Coming Soon</span>
+                            </div>
+                            <span class="product_badge">Coming Soon</span>
+                        </div>
+                        <div class="product_card_body">
+                            <h5 class="product_card_title">DR-Lite Ultra Beam</h5>
+                            <p class="product_card_desc">The next-generation torch with rechargeable lithium battery, USB-C charging, and a powerful 10W LED system — built for emergency services and industrial use.</p>
+
+                            <div class="star_rating">
+                                <span class="stars">★★★★<span class="star-empty">★</span></span>
+                                <span class="rating_count">4.6 (47 reviews)</span>
+                            </div>
+
+                            <div class="product_specs">
+                                <div class="product_specs_title">Specifications</div>
+                                <div class="spec_item">
+                                    <i class="lni lni-bulb"></i>
+                                    <span class="spec_label">LED Power</span>
+                                    <span class="spec_value">10 Watt Premium LED</span>
+                                </div>
+                                <div class="spec_item">
+                                    <i class="lni lni-bolt"></i>
+                                    <span class="spec_label">Battery</span>
+                                    <span class="spec_value">Rechargeable Li-ion, 16 hrs</span>
+                                </div>
+                                <div class="spec_item">
+                                    <i class="lni lni-travel"></i>
+                                    <span class="spec_label">Beam Range</span>
+                                    <span class="spec_value">2 Km ultra long range</span>
+                                </div>
+                                <div class="spec_item">
+                                    <i class="lni lni-plug"></i>
+                                    <span class="spec_label">Charging</span>
+                                    <span class="spec_value">USB-C fast charge (2 hrs full)</span>
+                                </div>
+                                <div class="spec_item">
+                                    <i class="lni lni-drop"></i>
+                                    <span class="spec_label">Protection</span>
+                                    <span class="spec_value">IPX6 waterproof</span>
+                                </div>
+                            </div>
+
+                            <div class="product_reviews">
+                                <div class="reviews_title">Customer Reviews</div>
+                                <div class="single_review">
+                                    <div class="review_author">Ravi P. — NDRF Volunteer, Delhi</div>
+                                    <div class="review_stars">★★★★★</div>
+                                    <div class="review_text">"USB-C charging is a game changer. Very bright beam, perfect for rescue ops."</div>
+                                </div>
+                                <div class="single_review">
+                                    <div class="review_author">Neha G. — Distributor, Rajasthan</div>
+                                    <div class="review_stars">★★★★<span style="color:#ddd">★</span></div>
+                                    <div class="review_text">"Great product for resale. Customers love the rechargeable aspect and build quality."</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- .row -->
+        </div><!-- .container -->
+    </section>
+    <!--====== PRODUCTS SECTION ENDS ======-->
+
+    <!--====== ABOUT US SECTION ======-->
+    <section id="about" class="about_us_area pt-95 pb-95">
+        <div class="container">
+
+            <!-- Section Title -->
+            <div class="row justify-content-center">
+                <div class="col-lg-7 col-md-10">
+                    <div class="section_title text-center pb-50">
+                        <h4 class="title">About DR-Lite</h4>
+                        <div class="section_divider center"></div>
+                        <p class="mt-15">Lighting the way for farmers, industries, and homes across India since day one.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Overview Row -->
+            <div class="row align-items-center">
                 <div class="col-lg-6 col-sm-12 paddingForLargerScreen">
-                    <img src="assets/images/torch2.webp" alt="about" class="torchImageAnimate animate__animated" style="opacity: 0;">
+                    <img src="assets/images/torch2.webp" alt="DR-Lite Overview" class="torchImageAnimate animate__animated" style="opacity: 0; border-radius: 12px;">
                 </div>
                 <div class="col-lg-6 col-sm-12">
                     <div class="about_content">
                         <div class="section_title pb-25">
                             <h4 class="title">Overview of DR-Lite</h4>
-                            <p>DR-Lite specializes in high-quality lighting solutions, offering a range of torches designed for durability, efficiency, and performance. With a focus on advanced LED technology and user-friendly features, DR-Lite products are built to withstand rugged conditions while providing powerful, reliable illumination. Whether for outdoor adventures, emergency use, or everyday tasks, DR-Lite torches are engineered to deliver the perfect balance of brightness, portability, and resilience. Trusted by users for their long battery life and versatile functionality, DR-Lite is committed to lighting up your path, wherever you go.</p>
+                            <div class="section_divider"></div>
                         </div>
-                        <!-- <a href="#" class="main-btn">Read More</a> -->
-                    </div> <!-- about content -->
+                        <p class="mt-20">DR-Lite specializes in high-quality lighting solutions, offering a range of torches designed for durability, efficiency, and performance. With a focus on advanced LED technology and user-friendly features, DR-Lite products are built to withstand rugged conditions while providing powerful, reliable illumination.</p>
+                        <p class="mt-15">Whether for outdoor adventures, emergency use, everyday tasks, or nighttime farming, DR-Lite torches are engineered to deliver the perfect balance of brightness, portability, and resilience. Trusted by users for their long battery life and versatile functionality, DR-Lite is committed to lighting up your path — wherever you go.</p>
+
+                        <div class="mt-30">
+                            <div class="about_value_item">
+                                <div class="about_value_icon"><i class="lni lni-leaf"></i></div>
+                                <div class="about_value_body">
+                                    <h6>Agriculture-First Design</h6>
+                                    <p>Purpose-built for Indian farmers working in fields at dawn or dusk.</p>
+                                </div>
+                            </div>
+                            <div class="about_value_item">
+                                <div class="about_value_icon"><i class="lni lni-shield"></i></div>
+                                <div class="about_value_body">
+                                    <h6>Industrial Grade Durability</h6>
+                                    <p>Every DR-Lite torch meets rigorous quality standards for rugged use.</p>
+                                </div>
+                            </div>
+                            <div class="about_value_item">
+                                <div class="about_value_icon"><i class="lni lni-handshake"></i></div>
+                                <div class="about_value_body">
+                                    <h6>Nationwide Distribution Network</h6>
+                                    <p>Available through dealers and distributors across all major Indian states.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <!-- <div class="row justify-content-end">
-                <div class="col-lg-6"> -->
-                <!-- </div>
-            </div> -->
-             <!-- row -->
-        </div> <!-- container -->
+
+            <!-- Stats Row -->
+            <div class="row mt-60 text-center">
+                <div class="col-lg-3 col-sm-6 mb-30">
+                    <div class="about_stat_box animate__animated" style="opacity: 0;">
+                        <div class="about_stat_number">50K+</div>
+                        <div class="about_stat_label">Units Sold</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 mb-30">
+                    <div class="about_stat_box animate__animated" style="opacity: 0;">
+                        <div class="about_stat_number">12+</div>
+                        <div class="about_stat_label">States Covered</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 mb-30">
+                    <div class="about_stat_box animate__animated" style="opacity: 0;">
+                        <div class="about_stat_number">4</div>
+                        <div class="about_stat_label">Product Lines</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 mb-30">
+                    <div class="about_stat_box animate__animated" style="opacity: 0;">
+                        <div class="about_stat_number">98%</div>
+                        <div class="about_stat_label">Customer Satisfaction</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team Row -->
+            <div class="row justify-content-center mt-50">
+                <div class="col-lg-8">
+                    <div class="section_title text-center pb-35">
+                        <h4 class="title" style="font-size: 28px;">Our Leadership</h4>
+                        <div class="section_divider center"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-3 col-sm-6 mb-20">
+                    <div class="about_team_card">
+                        <div class="about_team_avatar"><i class="lni lni-user"></i></div>
+                        <div class="about_team_name">Ajay Dhiman</div>
+                        <div class="about_team_role">Founder & CEO</div>
+                        <p class="mt-10" style="font-size: 13px;">Visionary behind DR-Lite's mission to bring reliable lighting to every Indian household and farm.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 mb-20">
+                    <div class="about_team_card">
+                        <div class="about_team_avatar"><i class="lni lni-cog"></i></div>
+                        <div class="about_team_name">R&D Team</div>
+                        <div class="about_team_role">Engineering & Design</div>
+                        <p class="mt-10" style="font-size: 13px;">Our engineers continuously innovate to develop next-generation LED lighting solutions.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 mb-20">
+                    <div class="about_team_card">
+                        <div class="about_team_avatar"><i class="lni lni-network"></i></div>
+                        <div class="about_team_name">Distribution Wing</div>
+                        <div class="about_team_role">Sales & Distribution</div>
+                        <p class="mt-10" style="font-size: 13px;">A pan-India network of dealers and distributors ensuring DR-Lite reaches every corner of the country.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </section>
+    <!--====== ABOUT US SECTION ENDS ======-->
 
-    <!--====== ABOUT PART ENDS ======-->
-    
-    <!--====== PRODUCT FEATURES PART START ======-->
-
-    <section id="product_features" class="product_features_area pt-95 ">
+    <!--====== PRODUCT BODY FEATURES ======-->
+    <section class="product_features_area pt-70 pb-70" style="background:#f7f7fd;">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-6 col-md-9">
                     <div class="section_title text-center pb-25">
                         <h4 class="title">Body Features</h4>
-                        <p>The body case is crafted from durable, high-quality plastic, ensuring both strength and a lightweight design.</p>
+                        <div class="section_divider center"></div>
+                        <p class="mt-15">The body case is crafted from durable, high-quality plastic, ensuring both strength and a lightweight design.</p>
                     </div>
                 </div>
-            </div> <!-- row -->
+            </div>
             <div class="row">
                 <div class="col-lg-12">
                     <div class="product_image mt-45" style="text-align: center;">
-                        <img class="biggerScreenOnly" src="assets/images/features.webp" alt="product features">
-                    </div> <!-- product image -->
+                        <img class="biggerScreenOnly" src="assets/images/features.webp" alt="product features" style="border-radius: 12px;">
+                    </div>
                 </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
+            </div>
+        </div>
     </section>
+    <!--====== PRODUCT BODY FEATURES ENDS ======-->
 
-    <!--====== PRODUCT FEATURES PART ENDS ======-->
-    
-    
-    <!--====== CONTACT PART START ======-->
-
-    <section id="contact" class="contact_area pt-50 mt-30">
+    <!--====== CONTACT US SECTION ======-->
+    <section id="contact" class="contact_area pt-95 pb-95">
         <div class="container">
+
+            <div class="row justify-content-center">
+                <div class="col-lg-7 col-md-10">
+                    <div class="section_title text-center pb-50">
+                        <h4 class="title">Contact Us</h4>
+                        <div class="section_divider center"></div>
+                        <p class="mt-15">For any sales, distributorship, or dealership related queries, feel free to get in touch with us.</p>
+                    </div>
+                </div>
+            </div>
+
             <div class="row">
+                <!-- Contact Info + Map -->
                 <div class="col-lg-4">
-                    <div class="contact_info mt-45">
+                    <div class="contact_info mt-10">
                         <div class="section_title pb-15">
-                            <h4 class="title">Get In Touch</h4>
-                            <p>For any sales/distributorship/dealership related queries, feel free to get in touch with us.</p>
+                            <h4 class="title" style="font-size: 22px;">Get In Touch</h4>
+                            <div class="section_divider"></div>
                         </div>
-                        <div class="single_info d-flex align-items-center mt-15">
-                            <div class="info_icon">
-                                <i class="lni lni-phone"></i>
-                            </div>
+
+                        <div class="single_info d-flex align-items-center mt-25">
+                            <div class="info_icon"><i class="lni lni-phone"></i></div>
                             <div class="info_content media-body">
                                 <p>+91-9266745789</p>
                             </div>
-                        </div> <!-- single info -->
-                        
+                        </div>
+
                         <div class="single_info d-flex align-items-center mt-15">
-                            <div class="info_icon">
-                                <i class="lni lni-envelope"></i>
-                            </div>
+                            <div class="info_icon"><i class="lni lni-envelope"></i></div>
                             <div class="info_content media-body">
                                 <p>info@drlite.in</p>
                             </div>
-                        </div> <!-- single info -->
-                        
+                        </div>
+
                         <div class="single_info d-flex align-items-center mt-15">
-                            <div class="info_icon">
-                                <i class="lni lni-map-marker"></i>
-                            </div>
+                            <div class="info_icon"><i class="lni lni-map-marker"></i></div>
                             <div class="info_content media-body">
-                                <p>Industrial Area, Delhi</p>
+                                <p>Tilak Nagar, New Delhi — 110018</p>
                             </div>
-                        </div> <!-- single info -->
-                    </div> <!-- contact info -->
+                        </div>
+
+                        <div class="single_info d-flex align-items-center mt-15">
+                            <div class="info_icon"><i class="lni lni-timer"></i></div>
+                            <div class="info_content media-body">
+                                <p>Mon–Sat: 10:00 AM – 6:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Google Map -->
+                    <div class="map_wrapper">
+                        <iframe
+                            src="https://maps.google.com/maps?q=Tilak+Nagar,+New+Delhi,+Delhi+110018&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                            allowfullscreen=""
+                            loading="lazy"
+                            title="DR-Lite Office Location — Tilak Nagar, New Delhi">
+                        </iframe>
+                    </div>
                 </div>
+
+                <!-- Contact Form -->
                 <div class="col-lg-8">
-                    <div class="contact_form pt-20">
-                        <form id="contact-form" action="assets/contact.php" method="post">
+                    <div class="contact_form_card">
+                        <h5 style="color:#38424D; margin-bottom: 24px; font-family:'Josefin Sans',sans-serif;">Send Us a Message</h5>
+                        <form id="contact-form" action="https://formsubmit.co/dajayhiman9611@gmail.com" method="POST">
+                            <!-- FormSubmit hidden fields -->
+                            <input type="hidden" name="_subject" value="New Contact Form Submission — DR-Lite Website">
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_template" value="table">
+                            <input type="text" name="_honey" style="display:none">
+
                             <div class="row">
                                 <div class="col-md-6">
-                                    <div class="single_form mt-30">
-                                        <input type="text" name="name" placeholder="Name">
-                                    </div> <!-- single form -->
+                                    <div class="single_form mt-20">
+                                        <input type="text" name="name" placeholder="Full Name" required>
+                                    </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="single_form mt-30">
-                                        <input type="email" name="email" placeholder="Email">
-                                    </div> <!-- single form -->
+                                    <div class="single_form mt-20">
+                                        <input type="email" name="email" placeholder="Email Address" required>
+                                    </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="single_form mt-30">
-                                        <input type="text" name="number" placeholder="Phone Number">
-                                    </div> <!-- single form -->
+                                    <div class="single_form mt-20">
+                                        <input type="tel" name="phone" placeholder="Phone Number" required>
+                                    </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="single_form mt-30">
-                                        <input type="text" name="subject" placeholder="Company Name">
-                                    </div> <!-- single form -->
+                                    <div class="single_form mt-20">
+                                        <input type="text" name="company" placeholder="Company / Organisation Name">
+                                    </div>
                                 </div>
                                 <div class="col-md-12">
-                                    <div class="single_form mt-30">
-                                        <textarea name="message" placeholder="Message"></textarea>
-                                    </div> <!-- single form -->
+                                    <div class="single_form mt-20">
+                                        <select name="inquiry_type" style="width:100%; padding: 0 20px; height: 50px; border: 1px solid #eee; border-radius: 5px; font-family:'Josefin Sans',sans-serif; font-size:15px; color:#747E88; background:#fff;">
+                                            <option value="" disabled selected>Type of Inquiry</option>
+                                            <option value="Sales">Sales</option>
+                                            <option value="Distributorship">Distributorship</option>
+                                            <option value="Dealership">Dealership</option>
+                                            <option value="Support">Product Support</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                    </div>
                                 </div>
-                                <p class="form-message"></p>
                                 <div class="col-md-12">
-                                    <div class="single_form mt-30">
-                                        <button class="main-btn">Submit</button>
-                                    </div> <!-- single form -->
+                                    <div class="single_form mt-20">
+                                        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                                    </div>
                                 </div>
-                            </div> <!-- row -->
+                                <div class="col-md-12">
+                                    <div class="single_form mt-25">
+                                        <button type="submit" class="main-btn">Send Message &nbsp;<i class="lni lni-arrow-right" style="vertical-align:middle;"></i></button>
+                                    </div>
+                                </div>
+                            </div>
                         </form>
-                    </div> <!-- contact form -->
+                    </div>
                 </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
+            </div>
+        </div>
     </section>
-    <br/>
-    <br/>
+    <!--====== CONTACT US SECTION ENDS ======-->
 
-    <!--====== CONTACT PART ENDS ======-->
-    
-    <!--====== FOOTER PART START ======-->
-
-    <section id="footer" class="footer_area" >
-        <div class="footer_widget pt-50 pb-100" style="background-color: black;">
+    <!--====== FOOTER ======-->
+    <section id="footer" class="footer_area">
+        <div class="footer_widget pt-50 pb-100" style="background-color: #0d0d0d;">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-5">
                         <div class="footer_about mt-50">
-                            <a href="#">
-                                <img class="brandLogo" style="width:230px" src="assets/images/logo_white.png" alt="logo">
+                            <a href="#home">
+                                <img class="brandLogo" style="width:200px" src="assets/images/logo_white.png" alt="DR-Lite Logo">
                             </a>
-                            <p class="textWhite">DR-Lite is a leading brand in high-performance lighting solutions, specializing in durable and innovative torches. Committed to excellence, DR-Lite combines cutting-edge LED technology with rugged design to offer reliable illumination for any adventure or task. Their torches are engineered for brightness, longevity, and resilience, making DR-Lite the trusted choice for those who need dependable light in all conditions.</p>
-                            <ul class="social">
+                            <p class="textWhite mt-20">DR-Lite is a leading brand in high-performance lighting solutions, specializing in durable and innovative torches. Committed to excellence, DR-Lite combines cutting-edge LED technology with rugged design to offer reliable illumination for any adventure or task.</p>
+                            <ul class="social mt-20">
                                 <li><a target="_blank" href="https://www.facebook.com/people/DR-Lite/61566022686293/"><i class="lni lni-facebook-filled"></i></a></li>
                                 <li><a target="_blank" href="https://instagram.com/drlite.in"><i class="lni lni-instagram-original"></i></a></li>
                                 <li><a target="_blank" href="https://www.linkedin.com/company/drlite/"><i class="lni lni-linkedin-original"></i></a></li>
                             </ul>
-                        </div> <!-- footer about -->
+                        </div>
                     </div>
-                    <div class="col-lg-1">
-                    </div>
+                    <div class="col-lg-1"></div>
                     <div class="col-lg-6">
                         <div class="footer_link_wrapper d-flex flex-wrap">
                             <div class="footer_link mt-45">
-                                <h4 class="footer_title" class="textWhite">Quick Links</h4>
-                                <ul class="link" class="textWhite">
+                                <h4 class="footer_title textWhite">Quick Links</h4>
+                                <ul class="link">
                                     <li><a href="#" class="textWhite">Terms of Service</a></li>
                                     <li><a href="#" class="textWhite">Refund Policy</a></li>
                                     <li><a href="#" class="textWhite">Support</a></li>
                                     <li><a href="#" class="textWhite">Branches</a></li>
                                     <li><a href="#" class="textWhite">License</a></li>
                                 </ul>
-                            </div> <!-- footer link -->
-                          
+                            </div>
                             <div class="footer_link mt-45">
-                                <h4 class="footer_title" class="textWhite">Support</h4>
+                                <h4 class="footer_title textWhite">Navigate</h4>
                                 <ul class="link">
                                     <li><a href="#home" class="textWhite">Home</a></li>
-                                    <li><a href="#features" class="textWhite">Features</a></li>
-                                    <li><a href="#about" class="textWhite">About</a></li>
-                                    <li><a href="#contact" class="textWhite">Contact</a></li>
-                                   
+                                    <li><a href="#products" class="textWhite">Products</a></li>
+                                    <li><a href="#about" class="textWhite">About Us</a></li>
+                                    <li><a href="#contact" class="textWhite">Contact Us</a></li>
                                 </ul>
-                            </div> <!-- footer link -->
-                        </div> <!-- footer link wrapper -->
+                            </div>
+                        </div>
                     </div>
-                </div> <!-- row -->
-            </div> <!-- container -->
-        </div> <!-- footer widget -->
-        
+                </div>
+            </div>
+        </div>
         <div class="footer_copyright">
             <div class="container">
                 <div class="copyright text-center">
-                    <p>Designed and Developed by <a class="brandColor" href="#" rel="nofollow">DR-Lite</a></p>
-                </div> <!-- copyright -->
-            </div> <!-- container -->
-        </div> <!-- footer copyright -->
+                    <p>Designed and Developed by <a class="brandColor" href="#" rel="nofollow">DR-Lite</a> &copy; 2024. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
     </section>
+    <!--====== FOOTER ENDS ======-->
 
-    <!--====== FOOTER PART ENDS ======-->
-    
-    <!--====== BACK TOP TOP PART START ======-->
-
+    <!--====== BACK TO TOP ======-->
     <a href="#" class="back-to-top"><i class="lni lni-chevron-up"></i></a>
+    <!--====== BACK TO TOP ENDS ======-->
 
-    <!--====== BACK TOP TOP PART ENDS ======-->
-    
-
-
-    <!--====== PART ENDS ======-->
-    
-
-
-    <!--====== Jquery js ======-->
+    <!--====== jQuery ======-->
     <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
     <script src="assets/js/vendor/modernizr-3.7.1.min.js"></script>
-    
-    <!--====== Bootstrap js ======-->
+
+    <!--====== Bootstrap ======-->
     <script src="assets/js/popper.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
-    
-    
-    <!--====== Scrolling Nav js ======-->
+
+    <!--====== Scrolling Nav ======-->
     <script src="assets/js/jquery.easing.min.js"></script>
     <script src="assets/js/scrolling-nav.js"></script>
-    
-    <!--====== Main js ======-->
-    <script src="assets/js/main.js"></script>
-    
-</body>
 
+    <!--====== Main JS ======-->
+    <script src="assets/js/main.js"></script>
+
+    <script>
+        // Intersection Observer for product cards and stat boxes
+        document.addEventListener("DOMContentLoaded", function () {
+            const animateEls = document.querySelectorAll('.product_card.animate__animated, .about_stat_box.animate__animated');
+
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate__fadeInUp');
+                        entry.target.style.opacity = 1;
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+
+            animateEls.forEach(el => observer.observe(el));
+        });
+    </script>
+
+</body>
 </html>
